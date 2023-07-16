@@ -136,7 +136,7 @@ class DynamicArray:
         TODO: Write this implementation
         """
         if new_capacity <= 0 or new_capacity < self._size or new_capacity == self._capacity:
-            return
+            return None
         new_arr = StaticArray(new_capacity)
         for index in range(self._size):
             new_arr[index] = self._data[index]
