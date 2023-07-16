@@ -147,7 +147,10 @@ class DynamicArray:
         """
         TODO: Write this implementation
         """
-        pass
+        if self._size == self._capacity:
+            self.resize(self._capacity * 2)
+        self._data[self._size] = value
+        self._size += 1
 
     def insert_at_index(self, index: int, value: object) -> None:
         """
