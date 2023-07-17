@@ -160,7 +160,7 @@ class DynamicArray:
             raise DynamicArrayException
         elif self._size == self._capacity:
             self.resize(self._capacity * 2)
-        for i in range(self._size - index):
+        for i in range(self._size - index + 1):
             self._data[i + index + 1] = self._data[i + index]
         self._data[index] = value
         self._size += 1
