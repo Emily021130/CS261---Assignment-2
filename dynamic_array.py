@@ -223,18 +223,17 @@ class DynamicArray:
         """
         result = None
         if initializer:
-            first = initializer
+            result = initializer
         else:
-            first = self._data[0]
+            result = self._data[0]
         for index in range(self._size):
-            result = reduce_func(first, self._data[index])
+            result = reduce_func(result, self._data[index])
         return result
 
 def find_mode(arr: DynamicArray) -> tuple[DynamicArray, int]:
     """
     TODO: Write this implementation
     """
-    pass
 
 
 # ------------------- BASIC TESTING -----------------------------------------
