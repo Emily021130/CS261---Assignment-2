@@ -158,10 +158,10 @@ class DynamicArray:
         """
         if index < 0 or index > self._size:
             raise DynamicArrayException
-        elif self._size == self._capacity:
+        if self._size == self._capacity:
             self.resize(self._capacity * 2)
-        for i in range(self._size - index + 1):
-            self._data[i + index + 1] = self._data[i + index]
+        for i in range(self._size, index, -1):
+            self._data[i] = self._data[i - 1]
         self._data[index] = value
         self._size += 1
 
