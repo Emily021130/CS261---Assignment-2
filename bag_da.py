@@ -52,7 +52,7 @@ class Bag:
         """
         TODO: Write this implementation
         """
-        for index in range(self._da.length()):
+        for index in range(self.size()):
             if self._da[index] == value:
                 self._da.remove_at_index(index)
                 return True
@@ -63,7 +63,7 @@ class Bag:
         TODO: Write this implementation
         """
         count = 0
-        for index in range(self._da.length()):
+        for index in range(self.size()):
             if self._da[index] == value:
                 count += 1
         return count
@@ -78,7 +78,13 @@ class Bag:
         """
         TODO: Write this implementation
         """
-        pass
+        if self.size() != second_bag.size():
+            return False
+        else:
+            for index in range(self.size()):
+                if self.count(self._da[index]) != second_bag.count(self._da[index]):
+                    return False
+            return True
 
     def __iter__(self):
         """
