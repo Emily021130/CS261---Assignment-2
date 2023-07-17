@@ -188,7 +188,7 @@ class DynamicArray:
             raise DynamicArrayException
         new_arr = DynamicArray()
         for index in range(size):
-            new_arr[index] = self._data[start_index]
+            new_arr.append(self._data[start_index])
             start_index += 1
         return new_arr
 
