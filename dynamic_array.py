@@ -173,8 +173,6 @@ class DynamicArray:
             raise DynamicArrayException
         if self._capacity > (self._size * 4):
             self._capacity = self._size * 2
-        if self._capacity < 10:
-            self._capacity = 10
         self._data[index] = None
         for i in range(index, self._size - 1):
             self._data[i] = self._data[i + 1]
