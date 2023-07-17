@@ -227,8 +227,8 @@ class DynamicArray:
             for index in range(self._size):
                 result = reduce_func(first, self._data[index])
         else:
-            for index in range(self._size + 1):
-                result = reduce_func(self._data[0], self._data[index])
+            for index in range(self._size - 1):
+                result = reduce_func(self._data[0], self._data[index + 1])
         return result
 
 def find_mode(arr: DynamicArray) -> tuple[DynamicArray, int]:
