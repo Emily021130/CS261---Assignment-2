@@ -171,9 +171,9 @@ class DynamicArray:
         """
         if index < 0 or index > self._size - 1:
             raise DynamicArrayException
-        if self._capacity > 10 and self._capacity > (self._size * 4) and self._size * 2 > 10:
+        if self._capacity > 10 and self._capacity > self._size * 4 and self._size * 2 > 10:
             self._capacity = self._size * 2
-        if self._capacity > 10 and self._capacity > (self._size * 4) and self._size * 2 < 10:
+        if self._capacity > 10 and self._capacity > self._size * 4 and self._size * 2 < 10:
             self._capacity = 10
         self._data[index] = None
         for i in range(index, self._size - 1):
@@ -184,7 +184,13 @@ class DynamicArray:
         """
         TODO: Write this implementation
         """
-        pass
+        if start_index < 0 or start_index > self._size - 1 or size < 0 or start_index + size > self._size - 1:
+            raise DynamicArrayException
+        new_arr = DynamicArray()
+        for index in range(size):
+            new_arr[index] = self._data[start_index]
+            start_index += 1
+        return new_arr
 
     def merge(self, second_da: "DynamicArray") -> None:
         """
