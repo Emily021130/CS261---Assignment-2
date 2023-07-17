@@ -184,7 +184,7 @@ class DynamicArray:
         """
         TODO: Write this implementation
         """
-        if start_index < 0 or start_index > self._size - 1 or size < 0 or start_index + size > self._size - 1:
+        if start_index < 0 or start_index > self._size - 1 or size < 0 or start_index + size > self._size:
             raise DynamicArrayException
         new_arr = DynamicArray()
         for index in range(start_index, start_index + size):
