@@ -52,7 +52,11 @@ class Bag:
         """
         TODO: Write this implementation
         """
-        pass
+        for index in range(self._da.length()):
+            if self._da[index] == value:
+                self._da.remove_at_index(index)
+                return True
+        return False
 
     def count(self, value: object) -> int:
         """
