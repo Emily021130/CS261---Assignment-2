@@ -221,12 +221,13 @@ class DynamicArray:
         """
         TODO: Write this implementation
         """
-        result = None
         if initializer:
+            start = 0
             result = initializer
         else:
+            start = 1
             result = self._data[0]
-        for index in range(self._size):
+        for index in range(start, self._size):
             result = reduce_func(result, self._data[index])
         return result
 
