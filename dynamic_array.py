@@ -3,7 +3,7 @@
 # Course: CS261 - Data Structures
 # Assignment: Assignment 2
 # Due Date: 07/17/2023
-# Description: 
+# Description:
 
 
 from static_array import StaticArray
