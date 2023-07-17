@@ -211,7 +211,11 @@ class DynamicArray:
         """
         TODO: Write this implementation
         """
-        pass
+        new_arr = DynamicArray()
+        for index in range(self._size):
+            if filter_func(self._data[index]) is True:
+                new_arr.append(self._data[index])
+        return new_arr
 
     def reduce(self, reduce_func, initializer=None) -> object:
         """
