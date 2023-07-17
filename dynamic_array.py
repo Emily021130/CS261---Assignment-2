@@ -235,6 +235,30 @@ def find_mode(arr: DynamicArray) -> tuple[DynamicArray, int]:
     """
     TODO: Write this implementation
     """
+    new_arr = DynamicArray()
+    count = 0
+    frequency = 0
+    mode = arr[0]
+    for index in range(arr.length()):
+        if arr[index] == mode:
+            count += 1
+        else:
+            if count > frequency:
+                frequency = count
+            mode = arr[index]
+            count = 1
+    most_appear = frequency
+    for index in range(arr.length()):
+        if arr[index] == mode:
+            count += 1
+            if count == most_appear:
+                new_arr.append(arr[index])
+        else:
+            if count > frequency:
+                frequency = count
+            mode = arr[index]
+            count = 1
+    return new_arr, most_appear
 
 
 # ------------------- BASIC TESTING -----------------------------------------
