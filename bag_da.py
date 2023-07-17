@@ -72,7 +72,7 @@ class Bag:
         """
         TODO: Write this implementation
         """
-        self.da = DynamicArray()
+        self._da = DynamicArray()
 
     def equal(self, second_bag: "Bag") -> bool:
         """
