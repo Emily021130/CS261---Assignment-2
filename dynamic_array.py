@@ -187,9 +187,8 @@ class DynamicArray:
         if start_index < 0 or start_index > self._size - 1 or size < 0 or start_index + size > self._size - 1:
             raise DynamicArrayException
         new_arr = DynamicArray()
-        for index in range(size):
-            new_arr.append(self._data[start_index])
-            start_index += 1
+        for index in range(start_index, start_index + size):
+            new_arr.append(self._data[index])
         return new_arr
 
     def merge(self, second_da: "DynamicArray") -> None:
