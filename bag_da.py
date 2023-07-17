@@ -1,8 +1,8 @@
-# Name:
-# OSU Email:
+# Name: Shuyao Zeng
+# OSU Email: zengs@oregonstate.edu
 # Course: CS261 - Data Structures
-# Assignment:
-# Due Date:
+# Assignment: Assignment 2
+# Due Date: 07/17/2023
 # Description:
 
 
@@ -46,7 +46,7 @@ class Bag:
         """
         TODO: Write this implementation
         """
-        pass
+        self._da.append(value)
 
     def remove(self, value: object) -> bool:
         """
