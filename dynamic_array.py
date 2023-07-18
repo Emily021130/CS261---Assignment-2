@@ -247,17 +247,21 @@ def find_mode(arr: DynamicArray) -> tuple[DynamicArray, int]:
                 frequency = count
             mode = arr[index]
             count = 1
-    most_appear = frequency
+    if count > frequency:
+        most_appear = count
+    else:
+        most_appear = frequency
+    frequency = 0
     for index in range(arr.length()):
         if arr[index] == mode:
-            count += 1
-            if count == most_appear:
-                new_arr.append(arr[index])
+            frequency += 1
         else:
-            if count > frequency:
-                frequency = count
+            if frequency == most_appear:
+                new_arr.append(mode)
             mode = arr[index]
-            count = 1
+            frequency = 1
+    if frequency == most_appear:
+        new_arr.append(mode)
     return new_arr, most_appear
 
 
