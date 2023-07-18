@@ -3,7 +3,9 @@
 # Course: CS261 - Data Structures
 # Assignment: Assignment 2
 # Due Date: 07/17/2023
-# Description:
+# Description: Implement a Bag ADT class by completing the skeleton code provided. Use the
+#              DynamicArray class implemented in Part 1 of this assignment as the underlying
+#              data storage for Bag ADT. The completed implementation will include seven methods.
 
 
 from dynamic_array import *
@@ -44,13 +46,14 @@ class Bag:
 
     def add(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        TODO: Add a new element to the bag.
         """
         self._da.append(value)
 
     def remove(self, value: object) -> bool:
         """
-        TODO: Write this implementation
+        TODO: Remove any one element from the bag that matches the provided value object. Return True
+              if some object was actually removed from the bag and return False otherwise.
         """
         for index in range(self.size()):
             if self._da[index] == value:
@@ -60,7 +63,7 @@ class Bag:
 
     def count(self, value: object) -> int:
         """
-        TODO: Write this implementation
+        TODO: Return the number of elements in the bag that match the provided value object.
         """
         count = 0
         for index in range(self.size()):
@@ -70,13 +73,15 @@ class Bag:
 
     def clear(self) -> None:
         """
-        TODO: Write this implementation
+        TODO: Clear the contents of the bag.
         """
         self._da = DynamicArray()
 
     def equal(self, second_bag: "Bag") -> bool:
         """
-        TODO: Write this implementation
+        TODO: Compare the contents of a bag with the contents of a second bag provided as a parameter.
+              Return True if the bags are equal (contain the same number of elements, and also contain
+              the same elements without regard to the order of elements). Return False otherwise.
         """
         if self.size() != second_bag.size():
             return False
@@ -88,14 +93,14 @@ class Bag:
 
     def __iter__(self):
         """
-        TODO: Write this implementation
+        TODO: Enable the Bag to iterate across itself.
         """
         self._index = 0
         return self
 
     def __next__(self):
         """
-        TODO: Write this implementation
+        TODO: Return the next item in the Bag based on the current location of the iterator.
         """
         try:
             value = self._da[self._index]

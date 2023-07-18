@@ -3,7 +3,9 @@
 # Course: CS261 - Data Structures
 # Assignment: Assignment 2
 # Due Date: 07/17/2023
-# Description:
+# Description: Class DynamicArray uses a StaticArray object as its underlying data storage container,
+#              and will provide many methods similar to the functionality of Python lists. The completed
+#              assignment will include nine different methods and a separate find_mode function.
 
 
 from static_array import StaticArray
@@ -133,7 +135,8 @@ class DynamicArray:
 
     def resize(self, new_capacity: int) -> None:
         """
-        TODO: Write this implementation
+        TODO: Change the underlying storage capacity for the elements in the dynamic array, but
+              do not change the values or the order of any elements currently stored in the array.
         """
         if new_capacity <= 0 or new_capacity < self._size:
             return
@@ -145,7 +148,7 @@ class DynamicArray:
 
     def append(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        TODO: Add a new value at the end of the dynamic array.
         """
         if self._size == self._capacity:
             self.resize(self._capacity * 2)
@@ -154,7 +157,7 @@ class DynamicArray:
 
     def insert_at_index(self, index: int, value: object) -> None:
         """
-        TODO: Write this implementation
+        TODO: Add a new value at the specified index in the dynamic array.
         """
         if index < 0 or index > self._size:
             raise DynamicArrayException
@@ -167,7 +170,12 @@ class DynamicArray:
 
     def remove_at_index(self, index: int) -> None:
         """
-        TODO: Write this implementation
+        TODO: Remove the element at the specified index in the dynamic array. When the number of
+              elements stored in the array (before removal) is strictly less than one fourth of
+              its current capacity, the capacity must be reduced to twice the number of current
+              elements. If the current capacity (before reduction) is 10 elements or less, reduction
+              should not occur at all. If the current capacity (before reduction) is greater than 10
+              elements, the reduced capacity cannot become less than 10 elements.
         """
         if index < 0 or index > self._size - 1:
             raise DynamicArrayException
@@ -182,7 +190,8 @@ class DynamicArray:
 
     def slice(self, start_index: int, size: int) -> "DynamicArray":
         """
-        TODO: Write this implementation
+        TODO: Return a new DynamicArray object that contains the requested number of elements from
+              the original array, starting with the element located at the requested start index.
         """
         if start_index < 0 or start_index > self._size - 1 or size < 0 or start_index + size > self._size:
             raise DynamicArrayException
@@ -193,14 +202,16 @@ class DynamicArray:
 
     def merge(self, second_da: "DynamicArray") -> None:
         """
-        TODO: Write this implementation
+        TODO: Take another DynamicArray object as a parameter, and appends all elements from this array
+              onto the current one, in the same order in which they are stored in the input array.
         """
         for index in range(second_da.length()):
             self.append(second_da[index])
 
     def map(self, map_func) -> "DynamicArray":
         """
-        TODO: Write this implementation
+        TODO: Create a new dynamic array where the value of each element is derived by applying a given
+              map_func to the corresponding value from the original array.
         """
         new_arr = DynamicArray()
         for index in range(self._size):
@@ -209,7 +220,8 @@ class DynamicArray:
 
     def filter(self, filter_func) -> "DynamicArray":
         """
-        TODO: Write this implementation
+        TODO: Create a new dynamic array populated only with those elements from the original array for
+              which filter_func returns True.
         """
         new_arr = DynamicArray()
         for index in range(self._size):
@@ -219,7 +231,10 @@ class DynamicArray:
 
     def reduce(self, reduce_func, initializer=None) -> object:
         """
-        TODO: Write this implementation
+        TODO: Apply the reduce_func to all elements of the dynamic array and returns the resulting value
+              sequentially. Take an optional initializer parameter or the first value in the array is no
+              parameter is provided. Return the value of the initializer (or None, if one was not provided)
+              if the dynamic array is empty.
         """
         if initializer:
             start = 0
@@ -233,7 +248,11 @@ class DynamicArray:
 
 def find_mode(arr: DynamicArray) -> tuple[DynamicArray, int]:
     """
-    TODO: Write this implementation
+    TODO: Receive a dynamic array already in sorted order, either non-descending or non-ascending.
+          Return a tuple containing (in this order) a dynamic array comprising the mode
+          (most-occurring) value/s of the array, and an integer that represents the highest frequency
+          (how many times they appear). All values at that frequency should be included in the array
+          being returned in the order in which they appear in the input array.
     """
     new_arr = DynamicArray()
     count = 0
